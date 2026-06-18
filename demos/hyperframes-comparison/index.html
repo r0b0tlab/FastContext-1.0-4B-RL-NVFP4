@@ -118,6 +118,14 @@
         color: var(--green);
         text-align: center;
       }
+      #model-note {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        line-height: 1.45;
+        color: #9aa8be;
+        text-align: center;
+        padding: 0 24px;
+      }
     </style>
   </head>
   <body>
@@ -136,8 +144,8 @@
           <strong style="color:#ff6b6b">API solver tokens</strong> for two approaches.
         </div>
         <div id="intro-method" style="opacity:0">
-          <strong style="color:#ff6b6b">Without:</strong> stuff the entire repo into the API context.
-          <strong style="color:#5befa8"> With:</strong> FastContext 1.0 4B <strong style="color:#5ec8ff">NVFP4</strong> on GB10 explores locally (Read/Glob/Grep), then the API only sees citations.
+          <strong style="color:#ff6b6b">Without:</strong> stuff the entire repo into the API context (solver: <strong style="color:#e8ecf4">GLM-5.2</strong>).
+          <strong style="color:#5befa8"> With:</strong> <strong style="color:#5ec8ff">FastContext 1.0 4B NVFP4</strong> on GB10 explores locally (Read/Glob/Grep), then the same API solver sees citations only.
         </div>
         <div id="question" style="opacity:0;font-size:18px;color:#6b7689;text-align:center"></div>
       </div>
@@ -148,7 +156,7 @@
         data-start="12"
         data-duration="76"
         data-track-index="2"
-        style="left:0;top:0;width:1920px;height:1080px;padding:28px 36px 24px;display:grid;grid-template-columns:680px 680px 440px;grid-template-rows:auto 1fr 180px;gap:18px;opacity:0;"
+        style="left:0;top:0;width:1920px;height:1080px;padding:28px 36px 52px;display:grid;grid-template-columns:680px 680px 440px;grid-template-rows:auto 1fr 150px 52px;gap:18px;opacity:0;"
       >
         <div style="grid-column:1/4;font-size:17px;color:#a8b4c8" id="dash-question"></div>
 
@@ -195,11 +203,23 @@
         <div style="grid-column:1/4;display:flex;align-items:center;justify-content:center;background:#0d1118;border:1px solid var(--border);border-radius:12px;">
           <div id="payoff" style="opacity:0"></div>
         </div>
+
+        <div id="model-note" style="grid-column:1/4;display:flex;align-items:center;justify-content:center;">
+          <strong style="color:#c5d0e0;font-weight:600">Models used:</strong>&nbsp;
+          Local explorer&nbsp;
+          <span style="color:#5befa8">r0b0tlab/FastContext-1.0-4B-RL-NVFP4</span>
+          (base&nbsp;
+          <span style="color:#5ec8ff">microsoft/FastContext-1.0-4B-RL</span>, Qwen3-4B) ·
+          API solver&nbsp;
+          <span style="color:#e8ecf4">GLM-5.2</span>
+          (OpenAI-compatible) · vLLM 0.23+&nbsp;
+          <span style="color:#5ec8ff">modelopt</span> NVFP4 on GB10
+        </div>
       </div>
 
       <div id="watermark" class="clip" data-start="0" data-duration="88" data-track-index="99"
-        style="right:48px;bottom:32px;font-family:'JetBrains Mono',monospace;font-size:15px;color:rgba(232,236,244,0.55);">
-        r0b0tlab/FastContext-1.0-4B-RL-NVFP4
+        style="right:48px;bottom:8px;font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(200,210,225,0.75);">
+        github.com/r0b0tlab/FastContext-1.0-4B-RL-NVFP4
       </div>
     </div>
 
