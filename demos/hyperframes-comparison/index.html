@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/telemetry_data.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px; overflow: hidden;
+        background: #080a0f; color: #e8ecf4;
+        font-family: Inter, sans-serif;
+      }
+      .clip { position: absolute; }
+      :root {
+        --bg: #080a0f;
+        --panel: #11151c;
+        --border: #2a3344;
+        --red: #ff6b6b;
+        --green: #5befa8;
+        --cyan: #5ec8ff;
+        --muted: #8b97ad;
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        height: 100%;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .panel h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .panel.without h2 { color: var(--red); }
+      .panel.with h2 { color: var(--green); }
+      .panel.telemetry h2 { color: var(--cyan); font-size: 18px; }
+      .big-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .bar-track {
+        height: 14px;
+        background: #1a2230;
+        border-radius: 7px;
+        overflow: hidden;
+        margin-top: 8px;
+      }
+      .bar-fill { height: 100%; border-radius: 7px; width: 0%; }
+      .without .bar-fill { background: linear-gradient(90deg, #ff6b6b, #ff9472); }
+      .with .bar-fill { background: linear-gradient(90deg, #5befa8, #7dffc0); }
+      .log {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+        flex: 1;
+        overflow: hidden;
+      }
+      .metric-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 8px 0;
+        border-bottom: 1px solid #1e2633;
+        font-size: 14px;
+      }
+      .metric-row span:last-child {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        color: #fff;
+      }
+      #question {
+        font-size: 20px;
+        color: var(--muted);
+        max-width: 1600px;
+        line-height: 1.4;
+      }
+      #hook {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 56px;
+        font-weight: 700;
+      }
+      #payoff {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--green);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="88"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Intro -->
+      <div
+        id="intro"
+        class="clip"
+        data-start="0"
+        data-duration="8"
+        data-track-index="1"
+        style="left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:var(--bg);"
+      >
+        <div id="hook" style="opacity:0">Same question. Two ways.</div>
+        <div id="question" style="opacity:0;text-align:center;padding:0 120px"></div>
+      </div>
+
+      <!-- Main dashboard -->
+      <div
+        id="dashboard"
+        class="clip"
+        data-start="8"
+        data-duration="80"
+        data-track-index="2"
+        style="left:0;top:0;width:1920px;height:1080px;padding:32px 40px 28px;display:grid;grid-template-columns:680px 680px 440px;grid-template-rows:auto 1fr 200px;gap:20px;opacity:0;"
+      >
+        <div style="grid-column:1/4;font-size:18px;color:var(--muted)" id="dash-question"></div>
+
+        <div class="panel without">
+          <h2>WITHOUT FastContext</h2>
+          <div style="font-size:14px;color:var(--muted)">API solver · full repo stuffed</div>
+          <div class="big-num" id="wo-tokens">0</div>
+          <div class="bar-track"><div class="bar-fill" id="wo-bar"></div></div>
+          <div class="log" id="wo-log">Waiting…</div>
+        </div>
+
+        <div class="panel with">
+          <h2>WITH FastContext NVFP4</h2>
+          <div style="font-size:14px;color:var(--muted)">GB10 local explore → citations → API</div>
+          <div class="big-num" id="wi-tokens">0</div>
+          <div class="bar-track"><div class="bar-fill" id="wi-bar"></div></div>
+          <div class="log" id="wi-log">Read → Glob → Grep…</div>
+        </div>
+
+        <div class="panel telemetry">
+          <h2>Telemetry</h2>
+          <div class="metric-row"><span>API token Δ</span><span id="m-reduction">—</span></div>
+          <div class="metric-row"><span>FC local tokens</span><span id="m-fc-local">0</span></div>
+          <div class="metric-row"><span>Tool calls</span><span id="m-tools">0</span></div>
+          <div class="metric-row"><span>NVFP4 decode</span><span id="m-decode">— tok/s</span></div>
+          <div class="metric-row"><span>BF16 baseline</span><span id="m-bf16">22.8 tok/s</span></div>
+          <div class="metric-row"><span>TTFT</span><span id="m-ttft">—</span></div>
+          <div class="metric-row"><span>GPU util</span><span id="m-util">0%</span></div>
+          <div class="metric-row"><span>GPU power</span><span id="m-power">— W</span></div>
+          <div class="metric-row"><span>GPU temp</span><span id="m-temp">— °C</span></div>
+          <div class="metric-row"><span>Model VRAM</span><span id="m-size">2.7 GB</span></div>
+          <div class="metric-row"><span>Phase</span><span id="m-phase">intro</span></div>
+        </div>
+
+        <div
+          style="grid-column:1/4;display:flex;align-items:center;justify-content:center;background:#0d1118;border:1px solid var(--border);border-radius:12px;"
+        >
+          <div id="payoff" style="opacity:0"></div>
+        </div>
+      </div>
+
+      <div
+        id="watermark"
+        class="clip"
+        data-start="0"
+        data-duration="88"
+        data-track-index="99"
+        style="right:48px;bottom:36px;font-family:'JetBrains Mono',monospace;font-size:16px;color:rgba(232,236,244,0.55);"
+      >
+        r0b0tlab/FastContext-1.0-4B-RL-NVFP4
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const D = window.TELEMETRY_DATA;
+      const WO_MAX = D.without_total;
+      const WI_MAX = D.with_total;
+
+      function fmt(n) {
+        return Math.round(n).toLocaleString("en-US");
+      }
+
+      function applyFrame(f) {
+        document.getElementById("wo-tokens").textContent = fmt(f.without_api_tokens);
+        document.getElementById("wi-tokens").textContent = fmt(f.with_api_tokens);
+        document.getElementById("wo-bar").style.width = Math.min(100, (f.without_api_tokens / WO_MAX) * 100) + "%";
+        document.getElementById("wi-bar").style.width = Math.min(100, (f.with_api_tokens / WO_MAX) * 100) + "%";
+        document.getElementById("m-fc-local").textContent = fmt(f.fc_local_tokens);
+        document.getElementById("m-tools").textContent = String(f.fc_tool_calls);
+        document.getElementById("m-decode").textContent = f.nvfp4_decode_tok_s ? f.nvfp4_decode_tok_s + " tok/s" : "—";
+        document.getElementById("m-ttft").textContent = f.ttft_ms ? f.ttft_ms + " ms" : "—";
+        document.getElementById("m-util").textContent = f.gpu_util_pct + "%";
+        document.getElementById("m-power").textContent = f.gpu_power_w + " W";
+        document.getElementById("m-temp").textContent = f.gpu_temp_c + " °C";
+        document.getElementById("m-phase").textContent = f.phase;
+        document.getElementById("m-reduction").textContent =
+          f.api_reduction_pct ? "−" + f.api_reduction_pct + "%" : "—";
+
+        const woLog = document.getElementById("wo-log");
+        const wiLog = document.getElementById("wi-log");
+        if (f.phase === "without") {
+          woLog.textContent = "Injecting entire demos/sample-repo into API context…";
+        } else if (f.phase === "with") {
+          wiLog.textContent =
+            "Glob config/vllm/* → Read deployment.md → cite docker-compose.yml";
+        } else if (f.phase === "bridge") {
+          wiLog.textContent = "Starting local FastContext NVFP4 on :30000…";
+        }
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+
+      document.getElementById("question").textContent = D.question;
+      document.getElementById("dash-question").textContent = D.question;
+
+      tl.fromTo("#hook", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo("#question", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.out" }, 0.4);
+      tl.to("#intro", { opacity: 0, duration: 0.6, ease: "power2.in" }, 7.2);
+      tl.fromTo("#dashboard", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 7.4);
+
+      const DECODE_PEAK = 66.3;
+      D.frames.forEach((frame) => {
+        if (frame.t > 79) return;
+        tl.call(() => applyFrame(frame), null, 8 + frame.t);
+      });
+
+      tl.fromTo(
+        "#payoff",
+        { opacity: 0, scale: 0.96 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power2.out",
+          onStart: function () {
+            const pct = D.frames[D.frames.length - 1].api_reduction_pct;
+            document.getElementById("payoff").textContent =
+              "−" + pct + "% API tokens · " + DECODE_PEAK + " tok/s NVFP4 on GB10";
+          },
+        },
+        72
+      );
+    </script>
+  </body>
+</html>

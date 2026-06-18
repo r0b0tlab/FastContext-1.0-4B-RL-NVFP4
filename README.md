@@ -45,14 +45,21 @@ Environment: `FC_NVFP4_MODEL`, `FC_NVFP4_PORT` (defaults in script).
 
 ## Demo video
 
+**Recommended (HyperFrames):** side-by-side + live telemetry column
+
 ```bash
-python3 benchmarks/measure_sample_repo.py
+cd demos/hyperframes-comparison
+npm run check && npm run render
+cp renders/hyperframes-comparison_*.mp4 ../../videos/fc-nvfp4-hyperframes-with-vs-without.mp4
+```
+
+**Quick draft (Pillow/ffmpeg):**
+
+```bash
 python3 demos/with-vs-without-video/scripts/render_comparison_video.py \
   --metrics benchmarks/hero_q1_deploy_vllm.json \
   --output videos/fc-nvfp4-q1-deploy-vllm.mp4
 ```
-
-Details: `demos/with-vs-without-video/README.md`
 
 ## Quantization
 
