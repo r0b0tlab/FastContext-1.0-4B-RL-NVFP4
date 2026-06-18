@@ -178,8 +178,12 @@
           <div class="metrics-block">
             <h2>WITH FastContext NVFP4</h2>
             <div style="font-size:13px;color:var(--muted)">GB10 local explore → citations → API</div>
-            <div class="big-num" id="wi-tokens">—</div>
+            <div class="big-num" id="wi-tokens">0</div>
             <div style="font-size:12px;color:var(--muted);min-height:16px" id="wi-token-hint">API solver tokens</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#9aa8be;margin-top:4px">
+              API <span id="wi-api-count" style="color:#e8ecf4">0</span>
+              · Local FC <span id="wi-local-count" style="color:#5befa8">0</span>
+            </div>
             <div class="bar-track"><div class="bar-fill" id="wi-bar"></div></div>
           </div>
           <div class="work-terminal">
@@ -240,23 +244,29 @@
         const woTok = f.without_frozen ? WO_MAX : f.without_api_tokens;
         document.getElementById("wo-tokens").textContent = fmt(woTok);
         const apiTok = f.with_api_tokens || 0;
+        const localTok = f.fc_local_tokens || 0;
         const wiTokEl = document.getElementById("wi-tokens");
         const wiHint = document.getElementById("wi-token-hint");
+        document.getElementById("wi-api-count").textContent = fmt(apiTok);
+        document.getElementById("wi-local-count").textContent = fmt(localTok);
+
         if (f.phase === "with" && apiTok > 0) {
           wiTokEl.textContent = fmt(apiTok);
-          wiHint.textContent = "API solver tokens (GLM-5.2)";
-        } else if (f.phase === "with" && f.fc_local_tokens > 0) {
-          wiTokEl.textContent = "—";
-          wiHint.textContent = "Local FC: " + fmt(f.fc_local_tokens) + " tokens (GB10, no API cost)";
+          wiHint.textContent = "API solver tokens (GLM-5.2) — comparison metric";
+        } else if (f.phase === "with" && localTok > 0) {
+          wiTokEl.textContent = fmt(localTok);
+          wiHint.textContent = "Local FastContext tokens on GB10 (free)";
         } else if (f.phase === "bridge") {
-          wiTokEl.textContent = "—";
-          wiHint.textContent = "Waiting for local explorer…";
+          wiTokEl.textContent = "0";
+          wiHint.textContent = "Starting local explorer…";
         } else {
-          wiTokEl.textContent = "—";
-          wiHint.textContent = "API solver tokens";
+          wiTokEl.textContent = "0";
+          wiHint.textContent = "Not started yet";
         }
+
+        const barTok = apiTok > 0 ? apiTok : (f.phase === "with" ? localTok : 0);
         document.getElementById("wo-bar").style.width = Math.min(100, (woTok / WO_MAX) * 100) + "%";
-        document.getElementById("wi-bar").style.width = Math.min(100, (apiTok / WO_MAX) * 100) + "%";
+        document.getElementById("wi-bar").style.width = Math.min(100, (barTok / WO_MAX) * 100) + "%";
 
         document.getElementById("wo-frozen").style.opacity = f.without_frozen ? "1" : "0";
         document.getElementById("panel-without").classList.toggle("frozen-without", f.without_frozen);
