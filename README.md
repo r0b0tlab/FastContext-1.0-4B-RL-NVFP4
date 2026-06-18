@@ -2,7 +2,7 @@
 
 NVFP4 (W4A4) weights for [microsoft/FastContext-1.0-4B-RL](https://huggingface.co/microsoft/FastContext-1.0-4B-RL) — the repository-exploration subagent for coding agents.
 
-This repository is **standalone**: model card, serving configs, a **bundled demo codebase**, and a with-vs-without comparison video. It is **not** the [hermes-concurrent-agents](https://github.com/r0b0tlab/hermes-concurrent-agents) project.
+This repository is **standalone**: model card, serving configs, and a **bundled demo codebase** for reproducing token comparisons. It is **not** the [hermes-concurrent-agents](https://github.com/r0b0tlab/hermes-concurrent-agents) project.
 
 | | |
 |---|---|
@@ -13,7 +13,7 @@ This repository is **standalone**: model card, serving configs, a **bundled demo
 ## Why this repo exists
 
 - **Hugging Face** hosts the quantized checkpoint.
-- **This GitHub repo** hosts serve scripts, a self-contained **demo fixture** (`demos/sample-repo/`), measured token comparison JSON, and video tooling.
+- **This GitHub repo** hosts serve scripts, a self-contained **demo fixture** (`demos/sample-repo/`), measured token comparison JSON, and **local-only** video render tooling (outputs are gitignored).
 
 ## Hero demo (hook q1)
 
@@ -43,22 +43,14 @@ chmod +x configs/vllm-serve.sh
 
 Environment: `FC_NVFP4_MODEL`, `FC_NVFP4_PORT` (defaults in script).
 
-## Demo video
+## Demo video (local only — not in this repo)
 
-**Recommended (HyperFrames):** side-by-side + live telemetry column
+Render on your machine; MP4s stay under `videos/` or `demos/hyperframes-comparison/renders/` (both **gitignored**).
 
 ```bash
 cd demos/hyperframes-comparison
 npm run check && npm run render
-cp renders/hyperframes-comparison_*.mp4 ../../videos/fc-nvfp4-hyperframes-with-vs-without.mp4
-```
-
-**Quick draft (Pillow/ffmpeg):**
-
-```bash
-python3 demos/with-vs-without-video/scripts/render_comparison_video.py \
-  --metrics benchmarks/hero_q1_deploy_vllm.json \
-  --output videos/fc-nvfp4-q1-deploy-vllm.mp4
+# output: demos/hyperframes-comparison/renders/*.mp4 (local)
 ```
 
 ## Quantization

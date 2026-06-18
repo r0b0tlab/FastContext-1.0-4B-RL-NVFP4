@@ -1,8 +1,15 @@
-# Generated / local
+# Generated / local — do not commit demo videos
+videos/
 videos/*.mp4
 videos/*.mkv
 videos/*.webm
 !videos/.gitkeep
+
+demos/**/renders/*.mp4
+demos/**/renders/*.mkv
+demos/**/renders/*.webm
+!demos/**/renders/.gitkeep
+
 .hermes/
 __pycache__/
 *.pyc

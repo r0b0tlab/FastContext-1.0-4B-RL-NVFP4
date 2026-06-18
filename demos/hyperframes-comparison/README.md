@@ -18,7 +18,7 @@ npm run check
 npm run render
 ```
 
-Output: `renders/hyperframes-comparison_*.mp4` → copy to `../../videos/fc-nvfp4-hyperframes-with-vs-without.mp4`
+Output: `renders/hyperframes-comparison_*.mp4` (**gitignored** — local use only, not published on GitHub)
 
 ## Telemetry tracked (per second)
 
