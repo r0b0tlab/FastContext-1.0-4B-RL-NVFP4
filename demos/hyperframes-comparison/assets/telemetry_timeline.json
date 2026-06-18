@@ -2,6 +2,8 @@
   "duration_s": 88,
   "intro_end_s": 12,
   "without_end_s": 42,
+  "fc_work_complete_at_s": 82,
+  "payoff_at_s": 85,
   "source_metrics": "benchmarks/hero_q1_deploy_vllm.json",
   "question": "How do I deploy and configure the vLLM model server for this project? What compose file, scripts, and environment variables are required?",
   "without_total": 120432,
@@ -24,6 +26,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -43,6 +46,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -62,6 +66,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -81,6 +86,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -100,6 +106,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -119,6 +126,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -138,6 +146,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -157,6 +166,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -176,6 +186,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -195,6 +206,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -214,6 +226,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -233,6 +246,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -254,6 +268,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -275,6 +290,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -296,6 +312,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -318,6 +335,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -340,6 +358,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -363,6 +382,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -386,6 +406,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -409,6 +430,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -433,6 +455,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -457,6 +480,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -482,6 +506,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -507,6 +532,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -532,6 +558,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -558,6 +585,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -584,6 +612,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -611,6 +640,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -638,6 +668,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -665,6 +696,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -693,6 +725,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -721,6 +754,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -750,6 +784,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -779,6 +814,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -808,6 +844,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -838,6 +875,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -868,6 +906,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -899,6 +938,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -930,6 +970,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -961,6 +1002,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -993,6 +1035,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1025,6 +1068,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1060,6 +1104,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1095,6 +1140,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1131,6 +1177,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1168,6 +1215,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1205,6 +1253,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1243,6 +1292,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
@@ -1269,9 +1319,7 @@
         "solver: waiting on API completion\u2026"
       ],
       "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
       ],
       "gpu_util_pct": 48,
       "gpu_power_w": 11.0,
@@ -1280,15 +1328,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
       "t": 49,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 4,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 1896,
+      "fc_local_tokens": 1897,
       "fc_tool_calls": 2,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1306,9 +1355,7 @@
         "solver: waiting on API completion\u2026"
       ],
       "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
       ],
       "gpu_util_pct": 48,
       "gpu_power_w": 11.0,
@@ -1317,15 +1364,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 0
     },
     {
       "t": 50,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 17,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 1913,
+      "fc_local_tokens": 1920,
       "fc_tool_calls": 2,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1343,9 +1391,7 @@
         "solver: waiting on API completion\u2026"
       ],
       "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
       ],
       "gpu_util_pct": 49,
       "gpu_power_w": 11.0,
@@ -1354,15 +1400,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 51,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 38,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 1942,
+      "fc_local_tokens": 1956,
       "fc_tool_calls": 2,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1380,9 +1427,7 @@
         "solver: waiting on API completion\u2026"
       ],
       "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
       ],
       "gpu_util_pct": 50,
       "gpu_power_w": 11.0,
@@ -1391,15 +1436,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 52,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 66,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 1981,
+      "fc_local_tokens": 2005,
       "fc_tool_calls": 2,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1417,9 +1463,7 @@
         "solver: waiting on API completion\u2026"
       ],
       "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
       ],
       "gpu_util_pct": 52,
       "gpu_power_w": 11.0,
@@ -1428,16 +1472,237 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 53,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 102,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 2030,
+      "fc_local_tokens": 2065,
       "fc_tool_calls": 2,
+      "wo_work_lines": [
+        "solver: attach demos/sample-repo/README.md",
+        "solver: attach docs/deployment.md",
+        "solver: attach config/vllm/docker-compose.yml",
+        "solver: attach config/vllm/.env.example",
+        "solver: attach scripts/start-vllm.sh",
+        "solver: attach docs/archive/note-000.md",
+        "solver: attach docs/archive/note-015.md",
+        "solver: attach docs/archive/note-032.md",
+        "solver: attach src/services/svc_0.py",
+        "solver: attach src/services/svc_12.py \u2026",
+        "solver: attach docs/archive/note-048.md \u2026",
+        "solver: context FULL \u2014 entire tree in API prompt",
+        "solver: waiting on API completion\u2026"
+      ],
+      "wi_work_lines": [
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
+      ],
+      "gpu_util_pct": 54,
+      "gpu_power_w": 11.0,
+      "gpu_temp_c": 43,
+      "nvfp4_decode_tok_s": 45.3,
+      "bf16_decode_tok_s": 22.8,
+      "model_size_gb": 2.7,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
+      "ttft_ms": 22
+    },
+    {
+      "t": 54,
+      "phase": "with",
+      "without_api_tokens": 120432,
+      "with_api_tokens": 0,
+      "without_frozen": true,
+      "fc_local_tokens": 2136,
+      "fc_tool_calls": 2,
+      "wo_work_lines": [
+        "solver: attach demos/sample-repo/README.md",
+        "solver: attach docs/deployment.md",
+        "solver: attach config/vllm/docker-compose.yml",
+        "solver: attach config/vllm/.env.example",
+        "solver: attach scripts/start-vllm.sh",
+        "solver: attach docs/archive/note-000.md",
+        "solver: attach docs/archive/note-015.md",
+        "solver: attach docs/archive/note-032.md",
+        "solver: attach src/services/svc_0.py",
+        "solver: attach src/services/svc_12.py \u2026",
+        "solver: attach docs/archive/note-048.md \u2026",
+        "solver: context FULL \u2014 entire tree in API prompt",
+        "solver: waiting on API completion\u2026"
+      ],
+      "wi_work_lines": [
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready"
+      ],
+      "gpu_util_pct": 57,
+      "gpu_power_w": 11.0,
+      "gpu_temp_c": 43,
+      "nvfp4_decode_tok_s": 55.9,
+      "bf16_decode_tok_s": 22.8,
+      "model_size_gb": 2.7,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
+      "ttft_ms": 22
+    },
+    {
+      "t": 55,
+      "phase": "with",
+      "without_api_tokens": 120432,
+      "with_api_tokens": 0,
+      "without_frozen": true,
+      "fc_local_tokens": 2217,
+      "fc_tool_calls": 2,
+      "wo_work_lines": [
+        "solver: attach demos/sample-repo/README.md",
+        "solver: attach docs/deployment.md",
+        "solver: attach config/vllm/docker-compose.yml",
+        "solver: attach config/vllm/.env.example",
+        "solver: attach scripts/start-vllm.sh",
+        "solver: attach docs/archive/note-000.md",
+        "solver: attach docs/archive/note-015.md",
+        "solver: attach docs/archive/note-032.md",
+        "solver: attach src/services/svc_0.py",
+        "solver: attach src/services/svc_12.py \u2026",
+        "solver: attach docs/archive/note-048.md \u2026",
+        "solver: context FULL \u2014 entire tree in API prompt",
+        "solver: waiting on API completion\u2026"
+      ],
+      "wi_work_lines": [
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
+        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**"
+      ],
+      "gpu_util_pct": 60,
+      "gpu_power_w": 11.0,
+      "gpu_temp_c": 44,
+      "nvfp4_decode_tok_s": 63.5,
+      "bf16_decode_tok_s": 22.8,
+      "model_size_gb": 2.7,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
+      "ttft_ms": 22
+    },
+    {
+      "t": 56,
+      "phase": "with",
+      "without_api_tokens": 120432,
+      "with_api_tokens": 0,
+      "without_frozen": true,
+      "fc_local_tokens": 2305,
+      "fc_tool_calls": 2,
+      "wo_work_lines": [
+        "solver: attach demos/sample-repo/README.md",
+        "solver: attach docs/deployment.md",
+        "solver: attach config/vllm/docker-compose.yml",
+        "solver: attach config/vllm/.env.example",
+        "solver: attach scripts/start-vllm.sh",
+        "solver: attach docs/archive/note-000.md",
+        "solver: attach docs/archive/note-015.md",
+        "solver: attach docs/archive/note-032.md",
+        "solver: attach src/services/svc_0.py",
+        "solver: attach src/services/svc_12.py \u2026",
+        "solver: attach docs/archive/note-048.md \u2026",
+        "solver: context FULL \u2014 entire tree in API prompt",
+        "solver: waiting on API completion\u2026"
+      ],
+      "wi_work_lines": [
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
+        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**"
+      ],
+      "gpu_util_pct": 62,
+      "gpu_power_w": 11.0,
+      "gpu_temp_c": 44,
+      "nvfp4_decode_tok_s": 66.3,
+      "bf16_decode_tok_s": 22.8,
+      "model_size_gb": 2.7,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
+      "ttft_ms": 22
+    },
+    {
+      "t": 57,
+      "phase": "with",
+      "without_api_tokens": 120432,
+      "with_api_tokens": 0,
+      "without_frozen": true,
+      "fc_local_tokens": 2401,
+      "fc_tool_calls": 2,
+      "wo_work_lines": [
+        "solver: attach demos/sample-repo/README.md",
+        "solver: attach docs/deployment.md",
+        "solver: attach config/vllm/docker-compose.yml",
+        "solver: attach config/vllm/.env.example",
+        "solver: attach scripts/start-vllm.sh",
+        "solver: attach docs/archive/note-000.md",
+        "solver: attach docs/archive/note-015.md",
+        "solver: attach docs/archive/note-032.md",
+        "solver: attach src/services/svc_0.py",
+        "solver: attach src/services/svc_12.py \u2026",
+        "solver: attach docs/archive/note-048.md \u2026",
+        "solver: context FULL \u2014 entire tree in API prompt",
+        "solver: waiting on API completion\u2026"
+      ],
+      "wi_work_lines": [
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
+        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**"
+      ],
+      "gpu_util_pct": 65,
+      "gpu_power_w": 11.0,
+      "gpu_temp_c": 44,
+      "nvfp4_decode_tok_s": 66.3,
+      "bf16_decode_tok_s": 22.8,
+      "model_size_gb": 2.7,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
+      "ttft_ms": 22
+    },
+    {
+      "t": 58,
+      "phase": "with",
+      "without_api_tokens": 120432,
+      "with_api_tokens": 0,
+      "without_frozen": true,
+      "fc_local_tokens": 2504,
+      "fc_tool_calls": 2,
+      "wo_work_lines": [
+        "solver: attach demos/sample-repo/README.md",
+        "solver: attach docs/deployment.md",
+        "solver: attach config/vllm/docker-compose.yml",
+        "solver: attach config/vllm/.env.example",
+        "solver: attach scripts/start-vllm.sh",
+        "solver: attach docs/archive/note-000.md",
+        "solver: attach docs/archive/note-015.md",
+        "solver: attach docs/archive/note-032.md",
+        "solver: attach src/services/svc_0.py",
+        "solver: attach src/services/svc_12.py \u2026",
+        "solver: attach docs/archive/note-048.md \u2026",
+        "solver: context FULL \u2014 entire tree in API prompt",
+        "solver: waiting on API completion\u2026"
+      ],
+      "wi_work_lines": [
+        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
+        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**"
+      ],
+      "gpu_util_pct": 67,
+      "gpu_power_w": 11.0,
+      "gpu_temp_c": 45,
+      "nvfp4_decode_tok_s": 66.3,
+      "bf16_decode_tok_s": 22.8,
+      "model_size_gb": 2.7,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
+      "ttft_ms": 22
+    },
+    {
+      "t": 59,
+      "phase": "with",
+      "without_api_tokens": 120432,
+      "with_api_tokens": 0,
+      "without_frozen": true,
+      "fc_local_tokens": 2611,
+      "fc_tool_calls": 3,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -1458,234 +1723,6 @@
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
       ],
-      "gpu_util_pct": 54,
-      "gpu_power_w": 11.0,
-      "gpu_temp_c": 43,
-      "nvfp4_decode_tok_s": 45.3,
-      "bf16_decode_tok_s": 22.8,
-      "model_size_gb": 2.7,
-      "api_reduction_pct": 0,
-      "ttft_ms": 22
-    },
-    {
-      "t": 54,
-      "phase": "with",
-      "without_api_tokens": 120432,
-      "with_api_tokens": 144,
-      "without_frozen": true,
-      "fc_local_tokens": 2087,
-      "fc_tool_calls": 2,
-      "wo_work_lines": [
-        "solver: attach demos/sample-repo/README.md",
-        "solver: attach docs/deployment.md",
-        "solver: attach config/vllm/docker-compose.yml",
-        "solver: attach config/vllm/.env.example",
-        "solver: attach scripts/start-vllm.sh",
-        "solver: attach docs/archive/note-000.md",
-        "solver: attach docs/archive/note-015.md",
-        "solver: attach docs/archive/note-032.md",
-        "solver: attach src/services/svc_0.py",
-        "solver: attach src/services/svc_12.py \u2026",
-        "solver: attach docs/archive/note-048.md \u2026",
-        "solver: context FULL \u2014 entire tree in API prompt",
-        "solver: waiting on API completion\u2026"
-      ],
-      "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example"
-      ],
-      "gpu_util_pct": 57,
-      "gpu_power_w": 11.0,
-      "gpu_temp_c": 43,
-      "nvfp4_decode_tok_s": 55.9,
-      "bf16_decode_tok_s": 22.8,
-      "model_size_gb": 2.7,
-      "api_reduction_pct": 0,
-      "ttft_ms": 22
-    },
-    {
-      "t": 55,
-      "phase": "with",
-      "without_api_tokens": 120432,
-      "with_api_tokens": 192,
-      "without_frozen": true,
-      "fc_local_tokens": 2152,
-      "fc_tool_calls": 2,
-      "wo_work_lines": [
-        "solver: attach demos/sample-repo/README.md",
-        "solver: attach docs/deployment.md",
-        "solver: attach config/vllm/docker-compose.yml",
-        "solver: attach config/vllm/.env.example",
-        "solver: attach scripts/start-vllm.sh",
-        "solver: attach docs/archive/note-000.md",
-        "solver: attach docs/archive/note-015.md",
-        "solver: attach docs/archive/note-032.md",
-        "solver: attach src/services/svc_0.py",
-        "solver: attach src/services/svc_12.py \u2026",
-        "solver: attach docs/archive/note-048.md \u2026",
-        "solver: context FULL \u2014 entire tree in API prompt",
-        "solver: waiting on API completion\u2026"
-      ],
-      "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example"
-      ],
-      "gpu_util_pct": 60,
-      "gpu_power_w": 11.0,
-      "gpu_temp_c": 44,
-      "nvfp4_decode_tok_s": 63.5,
-      "bf16_decode_tok_s": 22.8,
-      "model_size_gb": 2.7,
-      "api_reduction_pct": 0,
-      "ttft_ms": 22
-    },
-    {
-      "t": 56,
-      "phase": "with",
-      "without_api_tokens": 120432,
-      "with_api_tokens": 247,
-      "without_frozen": true,
-      "fc_local_tokens": 2225,
-      "fc_tool_calls": 2,
-      "wo_work_lines": [
-        "solver: attach demos/sample-repo/README.md",
-        "solver: attach docs/deployment.md",
-        "solver: attach config/vllm/docker-compose.yml",
-        "solver: attach config/vllm/.env.example",
-        "solver: attach scripts/start-vllm.sh",
-        "solver: attach docs/archive/note-000.md",
-        "solver: attach docs/archive/note-015.md",
-        "solver: attach docs/archive/note-032.md",
-        "solver: attach src/services/svc_0.py",
-        "solver: attach src/services/svc_12.py \u2026",
-        "solver: attach docs/archive/note-048.md \u2026",
-        "solver: context FULL \u2014 entire tree in API prompt",
-        "solver: waiting on API completion\u2026"
-      ],
-      "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example"
-      ],
-      "gpu_util_pct": 62,
-      "gpu_power_w": 11.0,
-      "gpu_temp_c": 44,
-      "nvfp4_decode_tok_s": 66.3,
-      "bf16_decode_tok_s": 22.8,
-      "model_size_gb": 2.7,
-      "api_reduction_pct": 0,
-      "ttft_ms": 22
-    },
-    {
-      "t": 57,
-      "phase": "with",
-      "without_api_tokens": 120432,
-      "with_api_tokens": 306,
-      "without_frozen": true,
-      "fc_local_tokens": 2304,
-      "fc_tool_calls": 2,
-      "wo_work_lines": [
-        "solver: attach demos/sample-repo/README.md",
-        "solver: attach docs/deployment.md",
-        "solver: attach config/vllm/docker-compose.yml",
-        "solver: attach config/vllm/.env.example",
-        "solver: attach scripts/start-vllm.sh",
-        "solver: attach docs/archive/note-000.md",
-        "solver: attach docs/archive/note-015.md",
-        "solver: attach docs/archive/note-032.md",
-        "solver: attach src/services/svc_0.py",
-        "solver: attach src/services/svc_12.py \u2026",
-        "solver: attach docs/archive/note-048.md \u2026",
-        "solver: context FULL \u2014 entire tree in API prompt",
-        "solver: waiting on API completion\u2026"
-      ],
-      "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example"
-      ],
-      "gpu_util_pct": 65,
-      "gpu_power_w": 11.0,
-      "gpu_temp_c": 44,
-      "nvfp4_decode_tok_s": 66.3,
-      "bf16_decode_tok_s": 22.8,
-      "model_size_gb": 2.7,
-      "api_reduction_pct": 0,
-      "ttft_ms": 22
-    },
-    {
-      "t": 58,
-      "phase": "with",
-      "without_api_tokens": 120432,
-      "with_api_tokens": 371,
-      "without_frozen": true,
-      "fc_local_tokens": 2388,
-      "fc_tool_calls": 2,
-      "wo_work_lines": [
-        "solver: attach demos/sample-repo/README.md",
-        "solver: attach docs/deployment.md",
-        "solver: attach config/vllm/docker-compose.yml",
-        "solver: attach config/vllm/.env.example",
-        "solver: attach scripts/start-vllm.sh",
-        "solver: attach docs/archive/note-000.md",
-        "solver: attach docs/archive/note-015.md",
-        "solver: attach docs/archive/note-032.md",
-        "solver: attach src/services/svc_0.py",
-        "solver: attach src/services/svc_12.py \u2026",
-        "solver: attach docs/archive/note-048.md \u2026",
-        "solver: context FULL \u2014 entire tree in API prompt",
-        "solver: waiting on API completion\u2026"
-      ],
-      "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example"
-      ],
-      "gpu_util_pct": 67,
-      "gpu_power_w": 11.0,
-      "gpu_temp_c": 45,
-      "nvfp4_decode_tok_s": 66.3,
-      "bf16_decode_tok_s": 22.8,
-      "model_size_gb": 2.7,
-      "api_reduction_pct": 0,
-      "ttft_ms": 22
-    },
-    {
-      "t": 59,
-      "phase": "with",
-      "without_api_tokens": 120432,
-      "with_api_tokens": 440,
-      "without_frozen": true,
-      "fc_local_tokens": 2478,
-      "fc_tool_calls": 2,
-      "wo_work_lines": [
-        "solver: attach demos/sample-repo/README.md",
-        "solver: attach docs/deployment.md",
-        "solver: attach config/vllm/docker-compose.yml",
-        "solver: attach config/vllm/.env.example",
-        "solver: attach scripts/start-vllm.sh",
-        "solver: attach docs/archive/note-000.md",
-        "solver: attach docs/archive/note-015.md",
-        "solver: attach docs/archive/note-032.md",
-        "solver: attach src/services/svc_0.py",
-        "solver: attach src/services/svc_12.py \u2026",
-        "solver: attach docs/archive/note-048.md \u2026",
-        "solver: context FULL \u2014 entire tree in API prompt",
-        "solver: waiting on API completion\u2026"
-      ],
-      "wi_work_lines": [
-        "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
-        "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example"
-      ],
       "gpu_util_pct": 69,
       "gpu_power_w": 11.0,
       "gpu_temp_c": 45,
@@ -1693,15 +1730,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 60,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 513,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 2572,
+      "fc_local_tokens": 2722,
       "fc_tool_calls": 3,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1721,9 +1759,7 @@
       "wi_work_lines": [
         "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md"
+        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
       ],
       "gpu_util_pct": 70,
       "gpu_power_w": 11.0,
@@ -1732,15 +1768,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 61,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 590,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 2669,
+      "fc_local_tokens": 2837,
       "fc_tool_calls": 3,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1760,9 +1797,7 @@
       "wi_work_lines": [
         "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
-        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md"
+        "FC turn 1 \u2014 hit config/vllm/docker-compose.yml"
       ],
       "gpu_util_pct": 71,
       "gpu_power_w": 11.0,
@@ -1771,15 +1806,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 62,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 670,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 2770,
+      "fc_local_tokens": 2953,
       "fc_tool_calls": 3,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1800,8 +1836,7 @@
         "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md"
+        "FC turn 2 \u2014 Read config/vllm/.env.example"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -1810,15 +1845,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 63,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 752,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 2872,
+      "fc_local_tokens": 3070,
       "fc_tool_calls": 3,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1839,8 +1875,7 @@
         "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md"
+        "FC turn 2 \u2014 Read config/vllm/.env.example"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -1849,15 +1884,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 64,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 837,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 2975,
+      "fc_local_tokens": 3187,
       "fc_tool_calls": 3,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1878,8 +1914,7 @@
         "vLLM :30000 \u2014 FastContext-1.0-4B-RL-NVFP4 ready",
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
-        "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md"
+        "FC turn 2 \u2014 Read config/vllm/.env.example"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -1888,16 +1923,17 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 65,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 923,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 3079,
-      "fc_tool_calls": 3,
+      "fc_local_tokens": 3302,
+      "fc_tool_calls": 4,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -1927,16 +1963,17 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 66,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1011,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 3183,
-      "fc_tool_calls": 3,
+      "fc_local_tokens": 3416,
+      "fc_tool_calls": 4,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -1957,8 +1994,7 @@
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
         "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md",
-        "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=."
+        "FC turn 2 \u2014 Read docs/deployment.md"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -1967,15 +2003,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 67,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1099,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 3285,
+      "fc_local_tokens": 3525,
       "fc_tool_calls": 4,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -1997,8 +2034,7 @@
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
         "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md",
-        "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=."
+        "FC turn 2 \u2014 Read docs/deployment.md"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2007,15 +2043,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 68,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1189,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 3386,
+      "fc_local_tokens": 3631,
       "fc_tool_calls": 4,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2037,8 +2074,7 @@
         "FC turn 1 \u2014 Glob directory=demos/sample-repo pattern=config/**",
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
         "FC turn 2 \u2014 Read config/vllm/.env.example",
-        "FC turn 2 \u2014 Read docs/deployment.md",
-        "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=."
+        "FC turn 2 \u2014 Read docs/deployment.md"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2047,15 +2083,16 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 69,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1278,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 3485,
+      "fc_local_tokens": 3730,
       "fc_tool_calls": 4,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2087,16 +2124,17 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 70,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1366,
+      "with_api_tokens": 0,
       "without_frozen": true,
-      "fc_local_tokens": 3580,
-      "fc_tool_calls": 4,
+      "fc_local_tokens": 3823,
+      "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2126,17 +2164,18 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 71,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1454,
+      "with_api_tokens": 46,
       "without_frozen": true,
-      "fc_local_tokens": 3671,
-      "fc_tool_calls": 4,
+      "fc_local_tokens": 3908,
+      "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2158,8 +2197,7 @@
         "FC turn 1 \u2014 hit config/vllm/docker-compose.yml",
         "FC turn 2 \u2014 Read config/vllm/.env.example",
         "FC turn 2 \u2014 Read docs/deployment.md",
-        "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
-        "FC turn 3 \u2014 Read scripts/start-vllm.sh"
+        "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=."
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2167,17 +2205,18 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 72,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1540,
+      "with_api_tokens": 176,
       "without_frozen": true,
-      "fc_local_tokens": 3758,
-      "fc_tool_calls": 4,
+      "fc_local_tokens": 3985,
+      "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2208,16 +2247,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 73,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1625,
+      "with_api_tokens": 371,
       "without_frozen": true,
-      "fc_local_tokens": 3839,
+      "fc_local_tokens": 4051,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2249,16 +2289,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 74,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1707,
+      "with_api_tokens": 616,
       "without_frozen": true,
-      "fc_local_tokens": 3913,
+      "fc_local_tokens": 4107,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2290,16 +2331,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 75,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1787,
+      "with_api_tokens": 894,
       "without_frozen": true,
-      "fc_local_tokens": 3981,
+      "fc_local_tokens": 4150,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2331,16 +2373,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 76,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1864,
+      "with_api_tokens": 1189,
       "without_frozen": true,
-      "fc_local_tokens": 4041,
+      "fc_local_tokens": 4181,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2364,7 +2407,8 @@
         "FC turn 2 \u2014 Read config/vllm/.env.example",
         "FC turn 2 \u2014 Read docs/deployment.md",
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
-        "FC turn 3 \u2014 Read scripts/start-vllm.sh"
+        "FC turn 3 \u2014 Read scripts/start-vllm.sh",
+        "FC turn 4 \u2014 <final_answer> citations ready"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2372,16 +2416,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 77,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 1937,
+      "with_api_tokens": 1483,
       "without_frozen": true,
-      "fc_local_tokens": 4093,
+      "fc_local_tokens": 4197,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2414,16 +2459,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 78,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2006,
+      "with_api_tokens": 1761,
       "without_frozen": true,
-      "fc_local_tokens": 4135,
+      "fc_local_tokens": 4200,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2456,16 +2502,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 79,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2071,
+      "with_api_tokens": 2006,
       "without_frozen": true,
-      "fc_local_tokens": 4167,
+      "fc_local_tokens": 4200,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2490,7 +2537,8 @@
         "FC turn 2 \u2014 Read docs/deployment.md",
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
-        "FC turn 4 \u2014 <final_answer> citations ready"
+        "FC turn 4 \u2014 <final_answer> citations ready",
+        "solver: inject 5 cited files only (not full tree)"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2498,16 +2546,17 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 80,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2130,
+      "with_api_tokens": 2201,
       "without_frozen": true,
-      "fc_local_tokens": 4189,
+      "fc_local_tokens": 4200,
       "fc_tool_calls": 5,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
@@ -2532,7 +2581,8 @@
         "FC turn 2 \u2014 Read docs/deployment.md",
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
-        "FC turn 4 \u2014 <final_answer> citations ready"
+        "FC turn 4 \u2014 <final_answer> citations ready",
+        "solver: inject 5 cited files only (not full tree)"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2540,17 +2590,18 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 81,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2185,
+      "with_api_tokens": 2331,
       "without_frozen": true,
-      "fc_local_tokens": 4199,
-      "fc_tool_calls": 5,
+      "fc_local_tokens": 4200,
+      "fc_tool_calls": 6,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2574,7 +2625,8 @@
         "FC turn 2 \u2014 Read docs/deployment.md",
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
-        "FC turn 4 \u2014 <final_answer> citations ready"
+        "FC turn 4 \u2014 <final_answer> citations ready",
+        "solver: inject 5 cited files only (not full tree)"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2582,17 +2634,18 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": false,
       "ttft_ms": 22
     },
     {
       "t": 82,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2233,
+      "with_api_tokens": 2378,
       "without_frozen": true,
       "fc_local_tokens": 4200,
-      "fc_tool_calls": 5,
+      "fc_tool_calls": 6,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2616,7 +2669,9 @@
         "FC turn 2 \u2014 Read docs/deployment.md",
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
-        "FC turn 4 \u2014 <final_answer> citations ready"
+        "FC turn 4 \u2014 <final_answer> citations ready",
+        "solver: inject 5 cited files only (not full tree)",
+        "solver: API completion streaming\u2026"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2624,17 +2679,18 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     },
     {
       "t": 83,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2275,
+      "with_api_tokens": 2378,
       "without_frozen": true,
       "fc_local_tokens": 4200,
-      "fc_tool_calls": 5,
+      "fc_tool_calls": 6,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2659,7 +2715,8 @@
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
         "FC turn 4 \u2014 <final_answer> citations ready",
-        "solver: inject 5 cited files only (not full tree)"
+        "solver: inject 5 cited files only (not full tree)",
+        "solver: API completion streaming\u2026"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2667,17 +2724,18 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     },
     {
       "t": 84,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2311,
+      "with_api_tokens": 2378,
       "without_frozen": true,
       "fc_local_tokens": 4200,
-      "fc_tool_calls": 5,
+      "fc_tool_calls": 6,
       "wo_work_lines": [
         "solver: attach demos/sample-repo/README.md",
         "solver: attach docs/deployment.md",
@@ -2702,7 +2760,8 @@
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
         "FC turn 4 \u2014 <final_answer> citations ready",
-        "solver: inject 5 cited files only (not full tree)"
+        "solver: inject 5 cited files only (not full tree)",
+        "solver: API completion streaming\u2026"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2710,14 +2769,15 @@
       "nvfp4_decode_tok_s": 66.3,
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
-      "api_reduction_pct": 98.0,
+      "api_reduction_pct": 0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     },
     {
       "t": 85,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2339,
+      "with_api_tokens": 2378,
       "without_frozen": true,
       "fc_local_tokens": 4200,
       "fc_tool_calls": 6,
@@ -2745,7 +2805,8 @@
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
         "FC turn 4 \u2014 <final_answer> citations ready",
-        "solver: inject 5 cited files only (not full tree)"
+        "solver: inject 5 cited files only (not full tree)",
+        "solver: API completion streaming\u2026"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2754,13 +2815,14 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 98.0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     },
     {
       "t": 86,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2360,
+      "with_api_tokens": 2378,
       "without_frozen": true,
       "fc_local_tokens": 4200,
       "fc_tool_calls": 6,
@@ -2788,7 +2850,8 @@
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
         "FC turn 4 \u2014 <final_answer> citations ready",
-        "solver: inject 5 cited files only (not full tree)"
+        "solver: inject 5 cited files only (not full tree)",
+        "solver: API completion streaming\u2026"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2797,13 +2860,14 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 98.0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     },
     {
       "t": 87,
       "phase": "with",
       "without_api_tokens": 120432,
-      "with_api_tokens": 2373,
+      "with_api_tokens": 2378,
       "without_frozen": true,
       "fc_local_tokens": 4200,
       "fc_tool_calls": 6,
@@ -2831,7 +2895,8 @@
         "FC turn 3 \u2014 Grep pattern=VLLM_PORT path=.",
         "FC turn 3 \u2014 Read scripts/start-vllm.sh",
         "FC turn 4 \u2014 <final_answer> citations ready",
-        "solver: inject 5 cited files only (not full tree)"
+        "solver: inject 5 cited files only (not full tree)",
+        "solver: API completion streaming\u2026"
       ],
       "gpu_util_pct": 72,
       "gpu_power_w": 11.0,
@@ -2840,6 +2905,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 98.0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     },
     {
@@ -2884,6 +2950,7 @@
       "bf16_decode_tok_s": 22.8,
       "model_size_gb": 2.7,
       "api_reduction_pct": 98.0,
+      "fc_work_complete": true,
       "ttft_ms": 22
     }
   ]

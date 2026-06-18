@@ -15,6 +15,9 @@ DURATION_S = 88
 INTRO_END = 12
 WITHOUT_END = 42
 BRIDGE_END = 48
+# When all WI_WORK_LINES are visible and API tokens have settled
+FC_WORK_COMPLETE_AT = 82
+PAYOFF_AT = 85
 
 WO_WORK_LINES = [
     "solver: attach demos/sample-repo/README.md",
@@ -103,12 +106,25 @@ def main() -> None:
             wi_lines = min(len(WI_WORK_LINES), 1 + int(p * 4))
         else:
             w_api = wo  # frozen after WITHOUT completes
-            p = min(1.0, (sec - BRIDGE_END) / max(1, DURATION_S - BRIDGE_END))
-            f_api = int(lerp(0, wi, p))
-            fc_loc = int(lerp(fc_local * 0.45, fc_local, min(1.0, p * 1.2)))
-            tools = int(lerp(2, max_tools, min(1.0, p * 1.1)))
+            work_span = max(1, FC_WORK_COMPLETE_AT - BRIDGE_END)
+            work_p = min(1.0, (sec - BRIDGE_END) / work_span)
+            wi_lines = min(
+                len(WI_WORK_LINES),
+                max(1, int(work_p * len(WI_WORK_LINES))),
+            )
+            # API solver tokens rise after exploration lines are mostly done
+            token_start = BRIDGE_END + int(work_span * 0.65)
+            if sec < token_start:
+                f_api = 0
+            else:
+                token_p = min(
+                    1.0,
+                    (sec - token_start) / max(1, FC_WORK_COMPLETE_AT - token_start),
+                )
+                f_api = int(lerp(0, wi, token_p))
+            fc_loc = int(lerp(fc_local * 0.45, fc_local, min(1.0, work_p * 1.15)))
+            tools = int(lerp(2, max_tools, min(1.0, work_p * 1.05)))
             wo_lines = len(WO_WORK_LINES)
-            wi_lines = min(len(WI_WORK_LINES), 3 + int(p * (len(WI_WORK_LINES) - 3)))
 
         gpu_util = 0 if phase == "intro" else (6 if phase == "without" else 12)
         if phase == "bridge":
@@ -142,7 +158,8 @@ def main() -> None:
                 "nvfp4_decode_tok_s": round(decode, 1),
                 "bf16_decode_tok_s": d["bf16_decode_tok_s"],
                 "model_size_gb": d["model_size_gb_nvfp4"],
-                "api_reduction_pct": d["api_token_reduction_pct"] if sec >= 70 else 0,
+                "api_reduction_pct": d["api_token_reduction_pct"] if sec >= PAYOFF_AT else 0,
+                "fc_work_complete": wi_lines >= len(WI_WORK_LINES) and f_api >= int(wi * 0.98),
                 "ttft_ms": 22 if phase == "with" and sec >= BRIDGE_END + 2 else 0,
             }
         )
@@ -151,6 +168,8 @@ def main() -> None:
         "duration_s": DURATION_S,
         "intro_end_s": INTRO_END,
         "without_end_s": WITHOUT_END,
+        "fc_work_complete_at_s": FC_WORK_COMPLETE_AT,
+        "payoff_at_s": PAYOFF_AT,
         "source_metrics": str(METRICS.relative_to(ROOT)),
         "question": m["question"],
         "without_total": wo,

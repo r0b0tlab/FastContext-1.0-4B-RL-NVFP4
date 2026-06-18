@@ -227,6 +227,7 @@
       window.__timelines = window.__timelines || {};
       const D = window.TELEMETRY_DATA;
       const WO_MAX = D.without_total;
+      const PAYOFF_AT = D.payoff_at_s || 85;
 
       function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
 
@@ -283,7 +284,7 @@
           document.getElementById("payoff").textContent =
             "−" + pct + "% API tokens · 66.3 tok/s NVFP4 on GB10";
         },
-      }, 74);
+      }, PAYOFF_AT);
     </script>
   </body>
 </html>
