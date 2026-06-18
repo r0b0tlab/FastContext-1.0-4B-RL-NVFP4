@@ -1,60 +1,109 @@
 # FastContext-1.0-4B-RL-NVFP4
 
-NVFP4 (W4A4) weights for [microsoft/FastContext-1.0-4B-RL](https://huggingface.co/microsoft/FastContext-1.0-4B-RL) — the repository-exploration subagent for coding agents.
+**NVFP4 (W4A4) implementation** for [microsoft/FastContext-1.0-4B-RL](https://huggingface.co/microsoft/FastContext-1.0-4B-RL) — a repository-exploration subagent for coding agents (Read / Glob / Grep → compact `file:line` citations).
 
-This repository is **standalone**: model card, serving configs, and a **bundled demo codebase** for reproducing token comparisons. It is **not** the [hermes-concurrent-agents](https://github.com/r0b0tlab/hermes-concurrent-agents) project.
+**Weights are published on Hugging Face.** This repo provides **quantization**, **vLLM serving**, and **integration** documentation only.
 
-| | |
-|---|---|
-| **HF weights** | [huggingface.co/r0b0tlab/FastContext-1.0-4B-RL-NVFP4](https://huggingface.co/r0b0tlab/FastContext-1.0-4B-RL-NVFP4) |
+| Resource | Link |
+|----------|------|
+| **Weights (HF)** | [huggingface.co/r0b0tlab/FastContext-1.0-4B-RL-NVFP4](https://huggingface.co/r0b0tlab/FastContext-1.0-4B-RL-NVFP4) |
 | **Base model** | [microsoft/FastContext-1.0-4B-RL](https://huggingface.co/microsoft/FastContext-1.0-4B-RL) |
 | **Paper** | [arXiv:2606.14066](https://arxiv.org/abs/2606.14066) |
 
-## Why this repo exists
+## What is FastContext?
 
-- **Hugging Face** hosts the quantized checkpoint.
-- **This GitHub repo** hosts serve scripts, a self-contained **demo fixture** (`demos/sample-repo/`), measured token comparison JSON, and **local-only** video render tooling (outputs are gitignored).
+FastContext is a **4B specialist** trained to explore codebases with read-only tools and return **citations**, so a larger “solver” model does not need the full repository in context. It is built on **Qwen3-4B-Instruct** and distributed by Microsoft under **MIT**.
 
-## Hero demo (hook q1)
+This project adds a **native NVFP4 checkpoint** (NVIDIA ModelOpt, group_size=16) for **vLLM** on NVFP4-capable GPUs.
 
-**Question:** *How do I deploy and configure the vLLM model server for this project?*
-
-**Fixture:** `demos/sample-repo/` only (no external monorepo required).
-
-| Path | API solver tokens (measured) |
-|------|-----------------------------:|
-| **Without FastContext** — stuff entire fixture into API context | see JSON |
-| **With FastContext NVFP4** — explore locally, cite files, then API solver | see JSON |
-
-Regenerate after editing the fixture:
+## Quick start (serve published weights)
 
 ```bash
-python3 benchmarks/measure_sample_repo.py
-```
-
-NVFP4 on GB10 (checkpoint serve): **66.3 tok/s** decode vs **22.8** BF16 (**2.9×**), **2.7 GB** weights, **~11 W** — from GB10 validation runs on this checkpoint.
-
-## Serve the model
-
-```bash
+git clone https://github.com/r0b0tlab/FastContext-1.0-4B-RL-NVFP4
+cd FastContext-1.0-4B-RL-NVFP4
 chmod +x configs/vllm-serve.sh
+export FC_NVFP4_MODEL=r0b0tlab/FastContext-1.0-4B-RL-NVFP4
 ./configs/vllm-serve.sh
 ```
 
-Environment: `FC_NVFP4_MODEL`, `FC_NVFP4_PORT` (defaults in script).
+Requires **vLLM ≥ 0.23**, `--quantization modelopt`, and an **NVFP4-capable** NVIDIA GPU (vLLM may emulate on older hardware).
 
-## Demo video (local only — not in this repo)
-
-Render on your machine; MP4s stay under `videos/` or `demos/hyperframes-comparison/renders/` (both **gitignored**).
+### Smoke test (OpenAI-compatible)
 
 ```bash
-cd demos/hyperframes-comparison
-npm run check && npm run render
-# output: demos/hyperframes-comparison/renders/*.mp4 (local)
+./examples/smoke_tool_call.sh
 ```
 
-## Quantization
+See `configs/vllm-serve.yaml` for the full flag set.
 
-NVIDIA ModelOpt 0.44.0, `NVFP4_DEFAULT_CFG`, `quant_method: modelopt_fp4` in `hf_quant_config.json`.
+## Reproduce quantization (optional)
 
-Credits: Microsoft (FastContext), Qwen (base), NVIDIA (ModelOpt). Quantization © 2026 r0b0tlab; MIT.
+From BF16 source `microsoft/FastContext-1.0-4B-RL`:
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements-quantize.txt
+# Install torch for your CUDA version first if needed (see NVIDIA/PyTorch docs)
+
+python scripts/quantize_nvfp4.py \
+  --model-path microsoft/FastContext-1.0-4B-RL \
+  --output-dir ./FastContext-1.0-4B-RL-NVFP4
+```
+
+Post-export, confirm `hf_quant_config.json` contains `"quant_method": "modelopt_fp4"` (the script sets this if missing).
+
+Details: `docs/QUANTIZATION.md`
+
+## Integration with FastContext CLI
+
+Point the [FastContext](https://github.com/microsoft/fastcontext) client at your local vLLM endpoint:
+
+```bash
+export BASE_URL=http://127.0.0.1:30000/v1
+export MODEL=FastContext-1.0-4B-RL-NVFP4
+export API_KEY=local
+```
+
+Use `--tool-call-parser hermes` on vLLM (Qwen3-style tool XML).
+
+## Performance (GB10 / SM121 validation)
+
+Measured vs BF16 `microsoft/FastContext-1.0-4B-RL` on the same vLLM stack (FlashInfer, FP8 KV):
+
+| Metric | BF16 | NVFP4 (this release) |
+|--------|------|-------------------------|
+| Decode throughput | 22.8 tok/s | **66.3 tok/s** |
+| TTFT | 43 ms | **22 ms** |
+| Checkpoint size | 7.6 GB | **2.7 GB** |
+| Tool-call smoke | pass | pass |
+
+Full model card: `docs/MODEL_CARD.md` (mirrors Hugging Face README).
+
+## Repository layout
+
+```
+configs/          vLLM launch script + reference YAML
+scripts/          NVFP4 quantization (ModelOpt)
+docs/             Model card + quantization notes
+examples/         Minimal serving smoke tests
+AGENTS.md         Guidance for coding agents working in this repo
+```
+
+## License
+
+- Quantization artifacts & this repo: **MIT** (see `LICENSE`)
+- Base model: **MIT** (Microsoft)
+- ModelOpt / calibration data: see `docs/MODEL_CARD.md`
+
+## Citation
+
+```bibtex
+@misc{zhang2026fastcontext,
+  title={FastContext: Training Efficient Repository Explorer for Coding Agents},
+  author={Shaoqiu Zhang and Maoquan Wang and Yuling Shi and Yuhang Wang and Xiaodong Gu and Yongqiang Yao and Rao Fu and Shengyu Fu},
+  year={2026},
+  eprint={2606.14066},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE}
+}
+```

@@ -1,22 +1,16 @@
-# Generated / local — do not commit demo videos
-videos/
-videos/*.mp4
-videos/*.mkv
-videos/*.webm
-!videos/.gitkeep
-
-demos/**/renders/*.mp4
-demos/**/renders/*.mkv
-demos/**/renders/*.webm
-!demos/**/renders/.gitkeep
-
-.hermes/
+# Local / generated
 __pycache__/
 *.pyc
 .env
 .env.*
+.venv/
 *.log
+output/
+FastContext-1.0-4B-RL-NVFP4/
 
-# Secrets
-*api*key*
-*token*
+# Never publish demo/video artifacts
+demos/
+videos/
+*.mp4
+*.mkv
+*.webm
