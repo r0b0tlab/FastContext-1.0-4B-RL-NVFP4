@@ -1,0 +1,15 @@
+# Generated / local
+videos/*.mp4
+videos/*.mkv
+videos/*.webm
+!videos/.gitkeep
+.hermes/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.log
+
+# Secrets
+*api*key*
+*token*
