@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,6 +10,40 @@ METRICS = ROOT / "benchmarks" / "hero_q1_deploy_vllm.json"
 OUT_JSON = ROOT / "demos" / "hyperframes-comparison" / "assets" / "telemetry_timeline.json"
 OUT_JS = ROOT / "demos" / "hyperframes-comparison" / "assets" / "telemetry_data.js"
 DURATION_S = 88
+
+# Composition timeline (seconds)
+INTRO_END = 12
+WITHOUT_END = 42
+BRIDGE_END = 48
+
+WO_WORK_LINES = [
+    "solver: attach demos/sample-repo/README.md",
+    "solver: attach docs/deployment.md",
+    "solver: attach config/vllm/docker-compose.yml",
+    "solver: attach config/vllm/.env.example",
+    "solver: attach scripts/start-vllm.sh",
+    "solver: attach docs/archive/note-000.md",
+    "solver: attach docs/archive/note-015.md",
+    "solver: attach docs/archive/note-032.md",
+    "solver: attach src/services/svc_0.py",
+    "solver: attach src/services/svc_12.py …",
+    "solver: attach docs/archive/note-048.md …",
+    "solver: context FULL — entire tree in API prompt",
+    "solver: waiting on API completion…",
+]
+
+WI_WORK_LINES = [
+    "vLLM :30000 — FastContext-1.0-4B-RL-NVFP4 ready",
+    "FC turn 1 — Glob directory=demos/sample-repo pattern=config/**",
+    "FC turn 1 — hit config/vllm/docker-compose.yml",
+    "FC turn 2 — Read config/vllm/.env.example",
+    "FC turn 2 — Read docs/deployment.md",
+    "FC turn 3 — Grep pattern=VLLM_PORT path=.",
+    "FC turn 3 — Read scripts/start-vllm.sh",
+    "FC turn 4 — <final_answer> citations ready",
+    "solver: inject 5 cited files only (not full tree)",
+    "solver: API completion streaming…",
+]
 
 
 def ease(t: float) -> float:
@@ -22,53 +55,75 @@ def lerp(a: float, b: float, t: float) -> float:
     return a + (b - a) * ease(t)
 
 
+def phase_at(sec: int) -> str:
+    if sec < INTRO_END:
+        return "intro"
+    if sec < WITHOUT_END:
+        return "without"
+    if sec < BRIDGE_END:
+        return "bridge"
+    return "with"
+
+
 def main() -> None:
     m = json.loads(METRICS.read_text(encoding="utf-8"))
     wo = m["without_fastcontext"]["solver_total_tokens"]
     wi = m["with_fastcontext_nvfp4"]["solver_total_tokens"]
     fc_local = m["with_fastcontext_nvfp4"]["fc_local_tokens"]
+    max_tools = m["with_fastcontext_nvfp4"]["fc_tool_calls"]
     d = m["derived"]
 
     frames = []
     for sec in range(DURATION_S + 1):
-        # Phases (seconds)
-        if sec < 8:
-            phase = "intro"
+        phase = phase_at(sec)
+
+        if phase == "intro":
             w_api = 0
             f_api = 0
             fc_loc = 0
             tools = 0
-        elif sec < 38:
-            phase = "without"
-            p = (sec - 8) / 30
+            wo_lines = 0
+            wi_lines = 0
+        elif phase == "without":
+            p = (sec - INTRO_END) / (WITHOUT_END - INTRO_END)
             w_api = int(lerp(0, wo, p))
             f_api = 0
             fc_loc = 0
             tools = 0
-        elif sec < 44:
-            phase = "bridge"
+            wo_lines = min(len(WO_WORK_LINES), 1 + int(p * (len(WO_WORK_LINES) - 1)))
+            wi_lines = 0
+        elif phase == "bridge":
+            # WITHOUT column frozen at final token count
             w_api = wo
-            f_api = int(lerp(wo, wo * 0.4, (sec - 38) / 6))
-            fc_loc = int(lerp(0, fc_local * 0.3, (sec - 38) / 6))
-            tools = int(lerp(0, 2, (sec - 38) / 6))
+            f_api = 0
+            p = (sec - WITHOUT_END) / (BRIDGE_END - WITHOUT_END)
+            fc_loc = int(lerp(0, fc_local * 0.45, p))
+            tools = int(lerp(0, 2, p))
+            wo_lines = len(WO_WORK_LINES)
+            wi_lines = min(len(WI_WORK_LINES), 1 + int(p * 4))
         else:
-            phase = "with"
-            p = min(1.0, (sec - 44) / 28)
-            w_api = int(lerp(wo * 0.35, wi, p))
-            f_api = wi if p > 0.85 else int(lerp(wo * 0.35, wi, p))
-            fc_loc = int(lerp(fc_local * 0.3, fc_local, p))
-            tools = int(lerp(2, m["with_fastcontext_nvfp4"]["fc_tool_calls"], p))
+            w_api = wo  # frozen after WITHOUT completes
+            p = min(1.0, (sec - BRIDGE_END) / max(1, DURATION_S - BRIDGE_END))
+            f_api = int(lerp(0, wi, p))
+            fc_loc = int(lerp(fc_local * 0.45, fc_local, min(1.0, p * 1.2)))
+            tools = int(lerp(2, max_tools, min(1.0, p * 1.1)))
+            wo_lines = len(WO_WORK_LINES)
+            wi_lines = min(len(WI_WORK_LINES), 3 + int(p * (len(WI_WORK_LINES) - 3)))
 
-        gpu_util = 0 if phase == "intro" else (8 if phase == "without" else 62)
+        gpu_util = 0 if phase == "intro" else (6 if phase == "without" else 12)
+        if phase == "bridge":
+            gpu_util = int(lerp(12, 48, (sec - WITHOUT_END) / (BRIDGE_END - WITHOUT_END)))
         if phase == "with":
-            gpu_util = int(lerp(18, 72, min(1.0, (sec - 44) / 12)))
+            gpu_util = int(lerp(48, 72, min(1.0, (sec - BRIDGE_END) / 14)))
 
-        decode = 0 if phase in ("intro", "without") else d["nvfp4_decode_tok_s"]
-        if phase == "with" and sec < 50:
-            decode = d["nvfp4_decode_tok_s"] * ease((sec - 44) / 6)
+        decode = 0.0 if phase in ("intro", "without") else float(d["nvfp4_decode_tok_s"])
+        if phase == "bridge":
+            decode = d["nvfp4_decode_tok_s"] * ease((sec - WITHOUT_END) / (BRIDGE_END - WITHOUT_END)) * 0.5
+        if phase == "with" and sec < BRIDGE_END + 8:
+            decode = d["nvfp4_decode_tok_s"] * ease((sec - BRIDGE_END) / 8)
 
-        power = 4.5 if phase == "intro" else (7 if phase == "without" else d["gpu_power_w_nvfp4"])
-        temp = 41 if phase != "with" else int(lerp(41, 47, min(1.0, (sec - 44) / 20)))
+        power = 4.5 if phase == "intro" else (7.0 if phase == "without" else float(d["gpu_power_w_nvfp4"]))
+        temp = 41 if phase in ("intro", "without") else int(lerp(41, 47, min(1.0, (sec - WITHOUT_END) / 25)))
 
         frames.append(
             {
@@ -76,8 +131,11 @@ def main() -> None:
                 "phase": phase,
                 "without_api_tokens": w_api,
                 "with_api_tokens": f_api,
+                "without_frozen": sec >= WITHOUT_END,
                 "fc_local_tokens": fc_loc,
                 "fc_tool_calls": tools,
+                "wo_work_lines": WO_WORK_LINES[:wo_lines],
+                "wi_work_lines": WI_WORK_LINES[:wi_lines],
                 "gpu_util_pct": gpu_util,
                 "gpu_power_w": round(power, 1),
                 "gpu_temp_c": temp,
@@ -85,12 +143,14 @@ def main() -> None:
                 "bf16_decode_tok_s": d["bf16_decode_tok_s"],
                 "model_size_gb": d["model_size_gb_nvfp4"],
                 "api_reduction_pct": d["api_token_reduction_pct"] if sec >= 70 else 0,
-                "ttft_ms": 22 if phase == "with" and sec >= 46 else 0,
+                "ttft_ms": 22 if phase == "with" and sec >= BRIDGE_END + 2 else 0,
             }
         )
 
     payload = {
         "duration_s": DURATION_S,
+        "intro_end_s": INTRO_END,
+        "without_end_s": WITHOUT_END,
         "source_metrics": str(METRICS.relative_to(ROOT)),
         "question": m["question"],
         "without_total": wo,
