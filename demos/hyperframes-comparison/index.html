@@ -178,7 +178,8 @@
           <div class="metrics-block">
             <h2>WITH FastContext NVFP4</h2>
             <div style="font-size:13px;color:var(--muted)">GB10 local explore → citations → API</div>
-            <div class="big-num" id="wi-tokens">0</div>
+            <div class="big-num" id="wi-tokens">—</div>
+            <div style="font-size:12px;color:var(--muted);min-height:16px" id="wi-token-hint">API solver tokens</div>
             <div class="bar-track"><div class="bar-fill" id="wi-bar"></div></div>
           </div>
           <div class="work-terminal">
@@ -238,9 +239,24 @@
       function applyFrame(f) {
         const woTok = f.without_frozen ? WO_MAX : f.without_api_tokens;
         document.getElementById("wo-tokens").textContent = fmt(woTok);
-        document.getElementById("wi-tokens").textContent = fmt(f.with_api_tokens);
+        const apiTok = f.with_api_tokens || 0;
+        const wiTokEl = document.getElementById("wi-tokens");
+        const wiHint = document.getElementById("wi-token-hint");
+        if (f.phase === "with" && apiTok > 0) {
+          wiTokEl.textContent = fmt(apiTok);
+          wiHint.textContent = "API solver tokens (GLM-5.2)";
+        } else if (f.phase === "with" && f.fc_local_tokens > 0) {
+          wiTokEl.textContent = "—";
+          wiHint.textContent = "Local FC: " + fmt(f.fc_local_tokens) + " tokens (GB10, no API cost)";
+        } else if (f.phase === "bridge") {
+          wiTokEl.textContent = "—";
+          wiHint.textContent = "Waiting for local explorer…";
+        } else {
+          wiTokEl.textContent = "—";
+          wiHint.textContent = "API solver tokens";
+        }
         document.getElementById("wo-bar").style.width = Math.min(100, (woTok / WO_MAX) * 100) + "%";
-        document.getElementById("wi-bar").style.width = Math.min(100, (f.with_api_tokens / WO_MAX) * 100) + "%";
+        document.getElementById("wi-bar").style.width = Math.min(100, (apiTok / WO_MAX) * 100) + "%";
 
         document.getElementById("wo-frozen").style.opacity = f.without_frozen ? "1" : "0";
         document.getElementById("panel-without").classList.toggle("frozen-without", f.without_frozen);

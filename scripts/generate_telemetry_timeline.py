@@ -11,11 +11,9 @@ OUT_JSON = ROOT / "demos" / "hyperframes-comparison" / "assets" / "telemetry_tim
 OUT_JS = ROOT / "demos" / "hyperframes-comparison" / "assets" / "telemetry_data.js"
 DURATION_S = 88
 
-# Composition timeline (seconds)
 INTRO_END = 12
 WITHOUT_END = 42
-BRIDGE_END = 48
-# When all WI_WORK_LINES are visible and API tokens have settled
+FC_START = 48  # FastContext work begins (no early bridge teaser)
 FC_WORK_COMPLETE_AT = 82
 PAYOFF_AT = 85
 
@@ -48,6 +46,8 @@ WI_WORK_LINES = [
     "solver: API completion streaming…",
 ]
 
+BRIDGE_STATUS = "Starting FastContext NVFP4 on GB10 (vLLM :30000)…"
+
 
 def ease(t: float) -> float:
     t = max(0.0, min(1.0, t))
@@ -63,7 +63,7 @@ def phase_at(sec: int) -> str:
         return "intro"
     if sec < WITHOUT_END:
         return "without"
-    if sec < BRIDGE_END:
+    if sec < FC_START:
         return "bridge"
     return "with"
 
@@ -77,6 +77,8 @@ def main() -> None:
     d = m["derived"]
 
     frames = []
+    max_wi_lines = 0
+
     for sec in range(DURATION_S + 1):
         phase = phase_at(sec)
 
@@ -86,7 +88,7 @@ def main() -> None:
             fc_loc = 0
             tools = 0
             wo_lines = 0
-            wi_lines = 0
+            wi_line_list: list[str] = []
         elif phase == "without":
             p = (sec - INTRO_END) / (WITHOUT_END - INTRO_END)
             w_api = int(lerp(0, wo, p))
@@ -94,26 +96,27 @@ def main() -> None:
             fc_loc = 0
             tools = 0
             wo_lines = min(len(WO_WORK_LINES), 1 + int(p * (len(WO_WORK_LINES) - 1)))
-            wi_lines = 0
+            wi_line_list = []
         elif phase == "bridge":
-            # WITHOUT column frozen at final token count
             w_api = wo
             f_api = 0
-            p = (sec - WITHOUT_END) / (BRIDGE_END - WITHOUT_END)
-            fc_loc = int(lerp(0, fc_local * 0.45, p))
-            tools = int(lerp(0, 2, p))
+            fc_loc = 0
+            tools = 0
             wo_lines = len(WO_WORK_LINES)
-            wi_lines = min(len(WI_WORK_LINES), 1 + int(p * 4))
+            wi_line_list = [BRIDGE_STATUS]
         else:
-            w_api = wo  # frozen after WITHOUT completes
-            work_span = max(1, FC_WORK_COMPLETE_AT - BRIDGE_END)
-            work_p = min(1.0, (sec - BRIDGE_END) / work_span)
-            wi_lines = min(
+            w_api = wo
+            work_span = max(1, FC_WORK_COMPLETE_AT - FC_START)
+            work_p = min(1.0, (sec - FC_START) / work_span)
+            n_lines = min(
                 len(WI_WORK_LINES),
                 max(1, int(work_p * len(WI_WORK_LINES))),
             )
-            # API solver tokens rise after exploration lines are mostly done
-            token_start = BRIDGE_END + int(work_span * 0.65)
+            max_wi_lines = max(max_wi_lines, n_lines)
+            n_lines = max_wi_lines
+            wi_line_list = WI_WORK_LINES[:n_lines]
+
+            token_start = FC_START + int(work_span * 0.68)
             if sec < token_start:
                 f_api = 0
             else:
@@ -122,24 +125,27 @@ def main() -> None:
                     (sec - token_start) / max(1, FC_WORK_COMPLETE_AT - token_start),
                 )
                 f_api = int(lerp(0, wi, token_p))
-            fc_loc = int(lerp(fc_local * 0.45, fc_local, min(1.0, work_p * 1.15)))
-            tools = int(lerp(2, max_tools, min(1.0, work_p * 1.05)))
+
+            fc_loc = int(lerp(0, fc_local, min(1.0, work_p * 1.1)))
+            tools = int(lerp(0, max_tools, min(1.0, work_p * 1.05)))
             wo_lines = len(WO_WORK_LINES)
 
-        gpu_util = 0 if phase == "intro" else (6 if phase == "without" else 12)
+        gpu_util = 0 if phase == "intro" else (6 if phase == "without" else 8)
         if phase == "bridge":
-            gpu_util = int(lerp(12, 48, (sec - WITHOUT_END) / (BRIDGE_END - WITHOUT_END)))
+            gpu_util = 12
         if phase == "with":
-            gpu_util = int(lerp(48, 72, min(1.0, (sec - BRIDGE_END) / 14)))
+            gpu_util = int(lerp(20, 72, min(1.0, (sec - FC_START) / 14)))
 
-        decode = 0.0 if phase in ("intro", "without") else float(d["nvfp4_decode_tok_s"])
-        if phase == "bridge":
-            decode = d["nvfp4_decode_tok_s"] * ease((sec - WITHOUT_END) / (BRIDGE_END - WITHOUT_END)) * 0.5
-        if phase == "with" and sec < BRIDGE_END + 8:
-            decode = d["nvfp4_decode_tok_s"] * ease((sec - BRIDGE_END) / 8)
+        decode = 0.0
+        if phase == "with" and sec >= FC_START:
+            decode = float(d["nvfp4_decode_tok_s"]) * ease(
+                min(1.0, (sec - FC_START) / 10)
+            )
 
         power = 4.5 if phase == "intro" else (7.0 if phase == "without" else float(d["gpu_power_w_nvfp4"]))
-        temp = 41 if phase in ("intro", "without") else int(lerp(41, 47, min(1.0, (sec - WITHOUT_END) / 25)))
+        temp = 41 if phase in ("intro", "without", "bridge") else int(
+            lerp(41, 47, min(1.0, (sec - FC_START) / 20))
+        )
 
         frames.append(
             {
@@ -151,7 +157,7 @@ def main() -> None:
                 "fc_local_tokens": fc_loc,
                 "fc_tool_calls": tools,
                 "wo_work_lines": WO_WORK_LINES[:wo_lines],
-                "wi_work_lines": WI_WORK_LINES[:wi_lines],
+                "wi_work_lines": wi_line_list,
                 "gpu_util_pct": gpu_util,
                 "gpu_power_w": round(power, 1),
                 "gpu_temp_c": temp,
@@ -159,8 +165,9 @@ def main() -> None:
                 "bf16_decode_tok_s": d["bf16_decode_tok_s"],
                 "model_size_gb": d["model_size_gb_nvfp4"],
                 "api_reduction_pct": d["api_token_reduction_pct"] if sec >= PAYOFF_AT else 0,
-                "fc_work_complete": wi_lines >= len(WI_WORK_LINES) and f_api >= int(wi * 0.98),
-                "ttft_ms": 22 if phase == "with" and sec >= BRIDGE_END + 2 else 0,
+                "fc_work_complete": len(wi_line_list) >= len(WI_WORK_LINES)
+                and f_api >= int(wi * 0.98),
+                "ttft_ms": 22 if phase == "with" and sec >= FC_START + 2 else 0,
             }
         )
 
@@ -168,6 +175,7 @@ def main() -> None:
         "duration_s": DURATION_S,
         "intro_end_s": INTRO_END,
         "without_end_s": WITHOUT_END,
+        "fc_start_s": FC_START,
         "fc_work_complete_at_s": FC_WORK_COMPLETE_AT,
         "payoff_at_s": PAYOFF_AT,
         "source_metrics": str(METRICS.relative_to(ROOT)),
