@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Serve r0b0tlab/FastContext-1.0-4B-RL-NVFP4 on GB10 / NVFP4-capable GPU (vLLM 0.23+).
+# Serve r0b0tlab/FastContext-1.0-4B-RL-NVFP4 (vLLM 0.23+, NVFP4-capable GPU).
 set -euo pipefail
 
 MODEL="${FC_NVFP4_MODEL:-r0b0tlab/FastContext-1.0-4B-RL-NVFP4}"
